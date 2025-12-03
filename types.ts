@@ -25,6 +25,19 @@ export interface SocialLink {
   icon: string; // Lucide icon name
 }
 
+export interface Service {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface Testimonial {
+  name: string;
+  role: string;
+  text: string;
+  avatar: string;
+}
+
 export interface ResumeData {
   name: string;
   title: string;
@@ -33,6 +46,7 @@ export interface ResumeData {
   phone: string;
   instagram: string;
   github: string;
+  avatarUrl: string; // New field for profile photo
   profileSummary: string;
   skills: SkillCategory[];
   education: {
@@ -45,6 +59,8 @@ export interface ResumeData {
   certifications: string[];
   languages: string[];
   careerObjective: string;
+  services: Service[];
+  testimonials: Testimonial[];
 }
 
 export interface ChatMessage {

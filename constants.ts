@@ -1,18 +1,19 @@
 import { ResumeData } from './types';
 
 export const RESUME_DATA: ResumeData = {
-  name: "Muddasir Ali",
-  title: "Web Developer (HTML, JavaScript, Tailwind CSS)",
+  name: "Muddasir Hussain",
+  title: "Web Developer (HTML, JavaScript, Tailwind, React)",
   location: "Karachi, Pakistan",
-  email: "your-email@example.com",
-  phone: "+92 300 1234567",
+  email: "muddasirsangi100@gmail.com",
+  phone: "+92 302 2644279",
   instagram: "FitFamVibes",
   github: "github.com/sangi1235",
-  profileSummary: "A passionate Web Developer specializing in HTML, JavaScript, and Tailwind CSS. I build clean, responsive, modern websites with a focus on UI/UX, speed, and mobile optimization.",
+  avatarUrl: "https://github.com/sangi1235.png", // Using GitHub profile as reliable source
+  profileSummary: "Frontend developer based in Karachi, Pakistan. I build fast, modern, mobile-friendly websites with clean UI/UX and strong performance optimization. Expert in HTML, JavaScript, Tailwind CSS, and React.",
   skills: [
     {
       title: "Technical",
-      skills: ["HTML5", "CSS3/Tailwind", "JavaScript", "Responsive Design", "UI/UX", "Website Optimization", "Basic Git/GitHub"]
+      skills: ["HTML5", "CSS3/Tailwind", "JavaScript", "Responsive Design", "UI/UX", "Website Optimization", "Basic Git/GitHub", "React", "SEO"]
     },
     {
       title: "Soft Skills",
@@ -41,7 +42,7 @@ export const RESUME_DATA: ResumeData = {
       tags: ["HTML", "Tailwind CSS", "JavaScript"],
       liveLink: "https://yt-cam-67yf.vercel.app/",
       repoLink: "https://github.com/sangi1235/yt-cam-67yf-",
-      image: "https://image.thum.io/get/width/1200/crop/630/https://yt-cam-67yf.vercel.app/"
+      image: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1200"
     },
     {
       title: "Restaurant Website (Gourmet Finds)",
@@ -49,7 +50,7 @@ export const RESUME_DATA: ResumeData = {
       tags: ["UI/UX", "Animation", "Responsive"],
       liveLink: "https://gourmet-finds.vercel.app/",
       repoLink: "https://github.com/sangi1235/GourmetFinds",
-      image: "https://image.thum.io/get/width/1200/crop/630/https://gourmet-finds.vercel.app/"
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1200"
     },
     {
       title: "Payment Test Page (Fake Checkout)",
@@ -57,7 +58,7 @@ export const RESUME_DATA: ResumeData = {
       tags: ["Forms", "Validation", "Frontend"],
       liveLink: "https://pay-flow-ai-checkout.vercel.app/",
       repoLink: "https://github.com/sangi1235/PayFlow-AI-Checkout",
-      image: "https://image.thum.io/get/width/1200/crop/630/https://pay-flow-ai-checkout.vercel.app/"
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=1200"
     },
     {
       title: "FitFamVibes Fitness Website",
@@ -81,5 +82,36 @@ export const RESUME_DATA: ResumeData = {
   ],
   certifications: ["Microsoft Office", "PMP Basic Knowledge"],
   languages: ["English", "Urdu"],
-  careerObjective: "To work in a professional environment where I can apply my web development skills and grow into a full-stack developer."
+  careerObjective: "To work in a professional environment where I can apply my web development skills and grow into a full-stack developer.",
+  services: [
+    {
+      title: "Custom Website Development",
+      description: "Building fast, responsive, and SEO-friendly websites from scratch using HTML, Tailwind CSS, and React to bring your vision to life.",
+      icon: "Code2"
+    },
+    {
+      title: "Performance Optimization",
+      description: "Speeding up existing websites, optimizing images, and improving Core Web Vitals to ensure a smooth user experience.",
+      icon: "Zap"
+    },
+    {
+      title: "UI/UX Design Implementation",
+      description: "Translating design mockups (Figma/Adobe XD) into pixel-perfect, interactive frontend code with smooth animations.",
+      icon: "Smartphone"
+    }
+  ],
+  testimonials: [
+    {
+      name: "Sarah Johnson",
+      role: "E-commerce Owner",
+      text: "Muddasir delivered our online store project on time and it looks fantastic on mobile devices. Highly recommended!",
+      avatar: "https://i.pravatar.cc/150?u=sarah"
+    },
+    {
+      name: "David Chen",
+      role: "Small Business Owner",
+      text: "Great communication and very skilled with Tailwind CSS. He fixed our layout issues in record time.",
+      avatar: "https://i.pravatar.cc/150?u=david"
+    }
+  ]
 };

@@ -4,11 +4,63 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Muddasir Ali | Web Developer</title>
+
+    <!-- GOOGLE SITE VERIFICATION -->
+    <meta name="google-site-verification" content="om2R43DDgTEPPU1ST_zy5blyeCDX-2hjglRwXIOYHF4" />
+    
+    <!-- PRIMARY SEO -->
+    <title>Muddasir Hussain | Web Developer Portfolio | HTML, JavaScript, Tailwind CSS</title>
+    <meta name="description" content="Official portfolio of Muddasir Hussain – Web Developer from Karachi, Pakistan. Expert in HTML, JavaScript, Tailwind CSS, React, UI/UX, responsive websites, and optimization. Explore projects, skills, resume, and contact information.">
+    <meta name="keywords" content="Muddasir Hussain, Muddasir Ali, sangiPortfolio, Muddasir Hussain Portfolio, Web Developer Karachi, Frontend Developer, HTML Developer, Tailwind CSS Developer, JavaScript Developer, React Developer, UI UX Developer, Pakistan Developer Portfolio, Responsive Websites, Modern Websites, Portfolio Website, Web Designer Karachi, Developer Resume, Full Stack Beginner, Frontend Projects, Nexus IoT Dashboard, E-commerce Website, Restaurant Website, Fitness Website, Payment Test Page, Clean UI Design, Freelance Developer Karachi, modern web developer, SEO optimized website, best frontend developer, top Pakistan developer, website creation Karachi">
+    <meta name="author" content="Muddasir Hussain">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="theme-color" content="#0ea5e9">
+
+    <!-- OPEN GRAPH / FACEBOOK / WHATSAPP -->
+    <meta property="og:title" content="Muddasir Hussain – Web Developer Portfolio">
+    <meta property="og:description" content="Frontend Web Developer specializing in HTML, JavaScript, Tailwind CSS & React. Explore my projects, skills, and resume.">
+    <meta property="og:image" content="https://github.com/sangi1235.png"> <!-- Updated to actual GitHub Profile Image -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/sangi1235">
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Muddasir Hussain – Web Developer Portfolio">
+    <meta name="twitter:description" content="Frontend Web Developer skilled in Tailwind CSS, React, HTML, JavaScript, UI/UX.">
+    <meta name="twitter:image" content="https://github.com/sangi1235.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD SCHEMA FOR GOOGLE -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Muddasir Hussain",
+      "alternateName": ["Muddasir Ali", "sangiPortfolio", "Muddasir Hussain Developer"],
+      "jobTitle": "Frontend Web Developer",
+      "email": "muddasirsangi100@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Karachi",
+        "addressCountry": "Pakistan"
+      },
+      "url": "https://github.com/sangi1235",
+      "image": "https://github.com/sangi1235.png",
+      "sameAs": [
+        "https://github.com/sangi1235"
+      ],
+      "knowsAbout": [
+        "HTML", "JavaScript", "Tailwind CSS", "UI UX", "Responsive Web Design", 
+        "Website Optimization", "React", "Frontend Development"
+      ]
+    }
+    </script>
+
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -16,6 +68,7 @@
           extend: {
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
+              serif: ['Merriweather', 'serif'],
             },
             colors: {
               primary: {
@@ -49,12 +102,50 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #94a3b8;
       }
+
+      /* PROFESSIONAL PRINT/PDF STYLES */
       @media print {
-        .no-print {
+        @page {
+          margin: 0.5in;
+          size: auto;
+        }
+
+        /* Hide interactive elements */
+        .no-print, nav, .chat-widget, button[aria-label], .download-section {
           display: none !important;
         }
-        .page-break {
-          page-break-before: always;
+
+        body {
+          background-color: white !important;
+          color: black !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        /* Resume View Specifics */
+        .resume-view {
+          display: block !important;
+          width: 100% !important;
+          height: auto !important;
+          overflow: visible !important;
+          background: white !important;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+
+        /* Ensure links are readable */
+        a {
+          text-decoration: none !important;
+          color: black !important;
+        }
+        
+        /* Typography overrides for print */
+        h1 { color: #1e293b !important; } /* Slate-800 */
+        h2 { color: #334155 !important; border-color: #cbd5e1 !important; }
+        
+        /* Hide the main app container when printing Resume View */
+        #root > div.portfolio-app {
+          display: none !important;
         }
       }
     </style>

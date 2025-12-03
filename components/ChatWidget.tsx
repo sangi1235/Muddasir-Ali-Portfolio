@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, User, Sparkles } from 'lucide-react';
 import { sendMessageToGemini } from '../services/geminiService';
 import { ChatMessage } from '../types';
 
@@ -44,39 +44,49 @@ export const ChatWidget: React.FC = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="flex items-center justify-center w-14 h-14 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full shadow-lg hover:shadow-blue-500/50 text-white transition-all hover:scale-110"
+          className="group relative flex items-center justify-center w-14 h-14 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-full shadow-lg border border-white/20 dark:border-slate-700 text-blue-600 dark:text-blue-400 transition-all hover:scale-110 hover:shadow-blue-500/20"
         >
+          <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-20 transition-opacity" />
           <MessageSquare size={28} />
+          {/* Notification Dot */}
+          <span className="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full border-2 border-white dark:border-slate-900 animate-pulse" />
         </button>
       )}
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="w-80 sm:w-96 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-gray-200 dark:border-slate-700 transition-all animate-in fade-in slide-in-from-bottom-10 duration-300">
+        <div className="w-[calc(100vw-2rem)] sm:w-96 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-white/40 dark:border-slate-700/50 transition-all animate-in fade-in slide-in-from-bottom-10 duration-300 fixed bottom-24 right-4 sm:bottom-auto sm:right-auto sm:relative">
           
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 flex justify-between items-center text-white">
+          <div className="bg-gradient-to-r from-blue-600/90 to-indigo-600/90 backdrop-blur p-4 flex justify-between items-center text-white border-b border-white/10">
             <div className="flex items-center gap-2">
-              <Bot size={20} />
-              <h3 className="font-semibold">Chat with Portfolio</h3>
+              <div className="p-1 bg-white/20 rounded-lg">
+                <Bot size={18} />
+              </div>
+              <div>
+                <h3 className="font-bold text-sm">Portfolio AI</h3>
+                <div className="flex items-center gap-1 text-[10px] opacity-80">
+                  <span className="w-1.5 h-1.5 bg-green-400 rounded-full"></span> Online
+                </div>
+              </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="hover:bg-white/20 p-1 rounded transition-colors">
-              <X size={20} />
+              <X size={18} />
             </button>
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 h-80 overflow-y-auto p-4 bg-gray-50 dark:bg-slate-900 space-y-4">
+          <div className="flex-1 h-80 sm:h-96 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600">
             {messages.map((msg, idx) => (
               <div
                 key={idx}
                 className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[80%] rounded-2xl p-3 text-sm ${
+                  className={`max-w-[85%] rounded-2xl p-3 text-sm shadow-sm ${
                     msg.role === 'user'
-                      ? 'bg-blue-600 text-white rounded-br-none'
-                      : 'bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 rounded-bl-none shadow-sm'
+                      ? 'bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-br-none'
+                      : 'bg-white/70 dark:bg-slate-800/70 backdrop-blur border border-white/40 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-bl-none'
                   }`}
                 >
                   {msg.text}
@@ -85,10 +95,11 @@ export const ChatWidget: React.FC = () => {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-white dark:bg-slate-800 p-3 rounded-2xl rounded-bl-none border border-gray-200 dark:border-slate-700 shadow-sm flex gap-1 items-center">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
-                  <span className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
-                  <span className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                <div className="bg-white/50 dark:bg-slate-800/50 backdrop-blur p-3 rounded-2xl rounded-bl-none border border-slate-200 dark:border-slate-700 shadow-sm flex gap-1 items-center">
+                  <Sparkles size={14} className="text-blue-500 animate-pulse mr-1" />
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
                 </div>
               </div>
             )}
@@ -96,18 +107,18 @@ export const ChatWidget: React.FC = () => {
           </div>
 
           {/* Input Area */}
-          <form onSubmit={handleSend} className="p-3 bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-slate-700 flex gap-2">
+          <form onSubmit={handleSend} className="p-3 border-t border-slate-200 dark:border-slate-700 bg-white/40 dark:bg-slate-900/40 backdrop-blur flex gap-2">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about Muddasir..."
-              className="flex-1 px-4 py-2 rounded-full border border-gray-300 dark:border-slate-600 bg-gray-100 dark:bg-slate-900 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="flex-1 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/60 dark:bg-slate-800/60 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-sm placeholder:text-slate-400 transition-all"
             />
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="p-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg shadow-blue-500/20"
             >
               <Send size={18} />
             </button>
