@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://muddasir-ali-portfolio-cogm.vercel.app/sitemap.xml
